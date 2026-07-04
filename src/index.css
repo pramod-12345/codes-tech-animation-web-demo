@@ -1,0 +1,207 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light dark;
+}
+
+
+
+body {
+  margin: 0;
+  @apply bg-white text-slate-900 transition-colors duration-300;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar {
+  width: .8vw;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(#ffffff, #00C0FF);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#ffffff, #00a0d6);
+}
+
+
+.dark body {
+  @apply bg-brand-dark text-slate-100;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Glassmorphism utility */
+.glass {
+  @apply bg-white/10 backdrop-blur-md border border-white/10;
+}
+
+.dark .glass {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+
+@layer utilities {
+
+  /* Chrome, Safari, and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* IE, Edge, and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  /* Fluid Typography Utilities */
+  .text-fluid-sm {
+    font-size: clamp(0.875rem, 2vw, 1rem);
+  }
+
+  .text-fluid-base {
+    font-size: clamp(1rem, 2.5vw, 1.125rem);
+  }
+
+  .text-fluid-lg {
+    font-size: clamp(1.125rem, 3vw, 1.25rem);
+  }
+
+  .text-fluid-xl {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+  }
+
+  .text-fluid-2xl {
+    font-size: clamp(1.5rem, 4vw, 1.875rem);
+  }
+
+  .text-fluid-3xl {
+    font-size: clamp(1.875rem, 5vw, 2.25rem);
+  }
+
+  .text-fluid-4xl {
+    font-size: clamp(2.25rem, 6vw, 3rem);
+  }
+
+  .text-fluid-5xl {
+    font-size: clamp(3rem, 7vw, 3.75rem);
+  }
+
+  .text-fluid-6xl {
+    font-size: clamp(3.75rem, 8vw, 4.5rem);
+  }
+
+  /* Fluid Spacing Utilities */
+  .gap-fluid {
+    gap: clamp(1rem, 4vw, 3rem);
+  }
+
+  .gap-fluid-lg {
+    gap: clamp(1.5rem, 5vw, 3.5rem);
+  }
+
+  .gap-fluid-xl {
+    gap: clamp(2rem, 6vw, 4rem);
+  }
+
+  /* Responsive Container Scaling */
+  .container-responsive {
+    width: 100%;
+    padding-left: clamp(1rem, 4vw, 3rem);
+    padding-right: clamp(1rem, 4vw, 3rem);
+  }
+}
+
+
+body {
+  font-size: 8px;
+}
+
+.canvas-orb canvas {
+  min-height: 350px !important;
+  min-width: 350px !important;
+}
+
+@media (min-width: 640px) {
+  body {
+    font-size: 10px;
+  }
+
+  .canvas-orb canvas {
+    min-height: 450px !important;
+    min-width: 450px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1280px) {
+  body {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 1536px) {
+  body {
+    font-size: 16px;
+  }
+}
+
+/* Lenis Smooth Scroll Base CSS */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}
